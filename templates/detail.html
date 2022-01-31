@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+<div class='container'>
+<div class="card">
+       
+    <h5 class="card-header">{{ object.title }}</li></h5>
+    <div class="card-body">
+     <p> <img src='{{ object.images.url }}' width=300></p>
+     <h6 class="card-title" style="color: green">投稿者 {{ object.author }}</h6>
+     <h6 class="card-title">レビュー内容:{{ object.content }}</h6>
+     <h6 class="card-title">投稿者の評価:{{ object.evaluation }}</h6>
+     <h6 class="card-title">いいね {{ object.useful_review }}</h6>
+     
+     <a href ="{% url 'evaluation' object.pk %}" class="btn btn-primary" roleP"botton" aira-pressed="True">参考になった</a>
+     <a href ="{% url 'list' %}" class="btn btn-primary">一覧へ</a>
+    
+    </div>
+ </div>
+</div>
+{% endblock content %}
+
+

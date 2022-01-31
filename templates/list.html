@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<div class="left"><a href = "{% url 'signup' %}">登録</a></div>
+<div class="left"><a href = "{% url 'login' %}">ログイン</a></div>
+<div class="left"><a href = "{% url 'logout' %}">ログアウト</a></div>
+
+{% endblock header %}
+
+{% block  content %}
+<div class='container'>
+    {% for item in object_list %}
+    <div class="card" style="margin-bottom: 30px">
+       
+       <h5 class="card-header">{{ item.title }}</h5>
+       <div class="card-body">
+        <h6 class="card-title">{{ item.author}}</h5>
+        <h6 class="card-title">いいね {{ item.useful_review }}</h6>
+        
+        <a href ="{% url 'detail' item.pk %}" class="btn btn-primary">詳細</a>
+       </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content%}
+
